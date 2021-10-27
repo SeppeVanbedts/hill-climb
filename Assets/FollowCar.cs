@@ -5,15 +5,21 @@ using UnityEngine;
 public class FollowCar : MonoBehaviour
 {
     public Transform target;
-    private Vector3 offset;
+    public int offset = 10;
+    public int offsety = 1;
     void Start()
     {
-        offset = transform.position - target.position;
+       
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.position = target.position + offset;
+        Vector3 pos = target.position;
+        pos.z = -offset;
+        pos.y = -offsety;
+        transform.position = pos;
+
+      
     }
 }
